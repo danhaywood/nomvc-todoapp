@@ -1,0 +1,18 @@
+@* To use Razor views, see Naked Objects Manual (search for 'Razor') *@
+
+@using NakedObjects.Web.Mvc.Html
+@model object
+@{
+    
+    Layout = "Site.WithServices.cshtml";
+}
+
+@section title {@Html.ObjectTitle(Model)}
+
+@Html.TabbedHistory()
+<div class="@Html.ObjectViewClass(Model)" id="@Html.ObjectTypeAsCssId(Model)"></div>
+
+@Html.UserMessages()
+    
+<div>@Html.ScalarView(Model)</div>
+

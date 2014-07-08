@@ -1,0 +1,17 @@
+@model NakedObjects.Web.Mvc.Models.ActionResultModel
+@using NakedObjects.Web.Mvc.Html
+
+@{  
+    Layout = "Site.WithServices.cshtml";
+}
+
+@section title {@Html.ObjectTitle(Model.Result)}
+
+@section MainContent { 
+@(Html.TabbedHistory(Model))   
+    <div class="@(IdHelper.StandaloneTableName)" id="@(Html.ObjectTypeAsCssId(Model.Result))">
+        @(Html.ActionResult(Model))
+        @(Html.UserMessages())
+        @(Html.Collection(Model.Result, Model.Action))
+    </div> 
+}
